@@ -1,14 +1,30 @@
 ﻿//Calculator
-double firstValue, secondValue;
-string action;
-Console.WriteLine("Enter first number ");
-firstValue = double.Parse(Console.ReadLine());
-Console.WriteLine("Enter second number ");
-secondValue = double.Parse(Console.ReadLine());
-Console.WriteLine("Choose an operation: '+','-','/','*'");
-action = Console.ReadLine();
-switch (action)
-{
+while (true)
+{   Console.Clear();
+    double firstValue, secondValue;
+    string action;
+    try
+    {
+        Console.WriteLine("Enter first number ");
+        firstValue = double.Parse(Console.ReadLine());
+        
+        Console.WriteLine("Enter second number ");
+        secondValue = double.Parse(Console.ReadLine());
+
+    }
+    catch (Exception)
+    {
+
+        Console.WriteLine("Can't convert string to number");
+        Console.ReadLine();
+        continue;
+    }
+
+    Console.WriteLine("Choose an operation: '+','-','/','*'");
+    action = Console.ReadLine();
+
+    switch (action)
+    {
     case "+":
         Console.WriteLine(firstValue + secondValue);
         break;
@@ -27,8 +43,9 @@ switch (action)
     default:
         Console.WriteLine("Error!");
         break;
+    }
+    Console.ReadLine();
 }
-Console.ReadLine();
 
 //1.
 int a = int.Parse(Console.ReadLine());
@@ -61,6 +78,7 @@ switch (b)
 
 
 }
+
 //ConsoleKey for keyboard
 //ConsoleKey consolekey = Console.ReadKey().Key;
 //switch (consolekey)
